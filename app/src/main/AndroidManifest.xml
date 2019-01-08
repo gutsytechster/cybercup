@@ -53,7 +53,8 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".mybrowser" />
         <activity android:name=".faqActivity" />
-        <activity android:name=".anotherbrowser"></activity>
+        <activity android:name=".anotherbrowser" />
+        <activity android:name=".PopupLocationActivity"></activity>
     </application>
 
 </manifest>
