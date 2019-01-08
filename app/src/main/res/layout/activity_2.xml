@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.example.cypher.projinselo.Activity2">
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2.1"
+                android:layout_width="wrap_content"
+                android:layout_height="400dp">
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2.2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="130dp"
+                    android:layout_margin="16dp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:background="@drawable/upbg">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="3"
+                        android:gravity="right">
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
+
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:scaleType="fitXY"
+                                app:srcCompat="@drawable/upimg" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_weight="2"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/editText"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:textColor="#000000"
+                                android:textSize="30dp"
+                                android:padding="10dp"
+                                android:inputType="textMultiLine"
+                                android:layout_gravity="center"
+                                android:text="Medicine Details" />
+
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2.3"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_below="@id/relativeLayout2.2"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="#ffffff"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Constituent Salts"
+                        android:textStyle="italic|bold"
+                        android:id="@+id/tv1"
+                        android:layout_marginTop="5dp"
+                        android:textSize="30sp"
+                        android:textColor="#000000"
+                        android:layout_marginLeft="30dp"
+                        android:gravity="center" />
+
+                    <TextView
+
+                        android:id="@+id/salt_detail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/tv1"
+                        android:layout_centerInParent="true"
+                        android:layout_margin="20dp"
+                        android:hint="Salt details here !"
+                        android:inputType="textMultiLine"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="400dp"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/btnMoreInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_alignParentTop="false"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:onClick="info"
+                    app:srcCompat="@drawable/moreinfo" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2.4"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="50dp"
+                android:layout_below="@id/relativeLayout2.1">
+
+
+                <Button
+                    android:id="@+id/button2.1"
+                    android:layout_width="250dp"
+                    android:layout_height="55dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="32dp"
+                    android:background="@drawable/nearme"
+                    android:onClick="map" />
+
+                <TextView
+                    android:id="@+id/textView2.3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/button2.1"
+                    android:layout_centerHorizontal="true"
+                    android:text="OR"
+                    android:layout_marginTop="20dp"
+                    android:textColor="#000000"
+                    android:textSize="24sp" />
+
+                <RelativeLayout
+                    android:id="@+id/relativeLayout2.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/textView2.3">
+
+
+                    <RelativeLayout
+                        android:id="@+id/relativeLayout2.6"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="40dp"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/stateName"
+                            android:layout_width="230dp"
+                            android:layout_height="70dp"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginStart="9dp"
+                            android:hint="Alternatives by Location"
+                            android:gravity="center"
+                            android:background="@drawable/inputlow"
+                            android:textSize="22sp" />
+                        <Button
+                            android:id="@+id/button2.2"
+                            android:layout_width="70dp"
+                            android:layout_height="65dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_toRightOf="@id/stateName"
+                            android:background="@drawable/next"
+                            android:onClick="onlocate" />
+
+
+                    </RelativeLayout>
+
+
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
