@@ -85,10 +85,14 @@ public class Activity2 extends AppCompatActivity {
                         .setNegativeButton("Cancel",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        map();
                                         dialog.cancel();
                                     }
-                                });
+                                }).setNeutralButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        map();
+                    }
+                });
 
                 // create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
@@ -128,10 +132,7 @@ public class Activity2 extends AppCompatActivity {
     public void info(View view) {
         DB_connection db = new DB_connection();
         med_code = db.getMedCode(med_name);
-
-        use_pres up = new use_pres(med_code);
-        up.execute();
-
+        new use_pres(med_code).execute();
         Intent intent = new Intent(this, ScrollingActivity.class);
         startActivity(intent);
     }

@@ -57,7 +57,8 @@
                     android:layout_height="45dp"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/search"
+                    android:text="search"
+                    android:background="#ff0000"
                     android:gravity="center"
                     android:onClick="onSearch" />
 
