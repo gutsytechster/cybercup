@@ -1,5 +1,6 @@
 package com.example.cypher.projinselo;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -61,9 +62,10 @@ public class Activity2 extends AppCompatActivity {
 
     public void map (View view)
     {
-        Intent intent = new Intent(this,MapsActivity.class);
-
-        startActivity(intent);
+        Uri gmmIntentUri = Uri.parse("geo:0,0?q=delhi+pharmacy");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        startActivity(mapIntent);
     }
 
     public void info (View view)
