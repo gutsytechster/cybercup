@@ -104,9 +104,9 @@ public class alter_database extends AsyncTask<Void,Void,Void> {
     @Override
     protected Void doInBackground(Void... voids)
     {
-        dburl = "jdbc:mysql://sql12.freemysqlhosting.net/sql12229112";
-        user = "sql12229112";
-        password = "LUtWhKljbf";
+        dburl = "jdbc:mysql://sql12.freemysqlhosting.net/sql12273219";
+        user = "sql12273219";
+        password = "QgXYMTZXzl";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");

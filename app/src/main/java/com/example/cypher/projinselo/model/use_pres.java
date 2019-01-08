@@ -123,9 +123,9 @@ public class use_pres extends AsyncTask<Void,Void,Void> {
     protected Void doInBackground(Void... voids)
     {
 
-        dburl="jdbc:mysql://sql12.freemysqlhosting.net/sql12256759";
-        user = "sql12256759";
-        password = "XWd9zvUiXg";
+        dburl = "jdbc:mysql://sql12.freemysqlhosting.net/sql12273219";
+        user = "sql12273219";
+        password = "QgXYMTZXzl";
 
         try
         {
