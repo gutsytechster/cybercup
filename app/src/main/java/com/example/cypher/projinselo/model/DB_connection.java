@@ -1,9 +1,12 @@
 package com.example.cypher.projinselo.model;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
 import com.example.cypher.projinselo.Activity2;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class DB_connection extends AsyncTask<String,Void,Void> {
 
@@ -12,7 +15,9 @@ public class DB_connection extends AsyncTask<String,Void,Void> {
     public static String med_code;
     public static String med_name;
     public static String comp;
+    public static String conflict_med;
     public static String Salt = "";
+    public static String conflict_med_name = "sdfgh";
 
     public String getMedCode(String MName) {
         String query = "";
@@ -34,6 +39,50 @@ public class DB_connection extends AsyncTask<String,Void,Void> {
         System.out.println("Med code::::::" + med_code);
 
         return med_code;
+    }
+
+    public String getConflictMedNames(String Mcode) {
+        String query = "";
+
+        init_med_name();
+
+        try{
+            query = "SELECT Conflict_Med FROM Conflict_Meds WHERE Conflict_Med LIKE ?;";
+            PreparedStatement statement1 = Conn.prepareStatement(query);Log.v("Stranger", "1");
+            statement1.setString(1, "%" + Mcode + "%");Log.v("Stranger", "1");
+
+            Log.v("stranger", statement1.toString());
+
+            ResultSet rs1 = statement1.executeQuery();Log.v("Stranger", "1");
+            while (rs1.next()) {
+                conflict_med = rs1.getString(1);Log.v("Stranger", "1");
+            }
+            String[] conflict_medicine_codes = conflict_med.split(",");Log.v("Stranger", "1");
+            PreparedStatement statement2 = Conn.prepareStatement("SELECT Common_Name FROM medicine WHERE Medicine_Code = '?'");Log.v("Stranger", "1");
+            conflict_med_name = "Conflicting Medicines: ";Log.v("Stranger", "1");
+            for (int i = 0; i < conflict_medicine_codes.length; i++){
+                statement2.setString(1, conflict_medicine_codes[i]);Log.v("Stranger", "1");
+                ResultSet rs2 = statement2.executeQuery();Log.v("Stranger", "1");
+
+                while(rs2.next()){
+                    String Medicine_name = rs2.getString(1);Log.v("Stranger", "1");
+                    conflict_med_name += Medicine_name;Log.v("Stranger", "1");
+                }
+
+                if( i < conflict_medicine_codes.length){
+                    conflict_med_name += ",";Log.v("Stranger", "1");
+                }
+
+            }
+        } catch (Exception e) {
+            System.out.println("Error in composition::::" + e);
+        }
+        return conflict_med_name;
+    }
+
+    private void init_med_name() {
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("");
     }
 
     public String getComposition(String MCode) {
