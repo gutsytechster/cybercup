@@ -32,6 +32,7 @@ public class Activity2 extends AppCompatActivity {
     public static String salt;
     ArrayAdapter<String> adapter;
     public Button button21;
+    public Button conflictMed;
     public String[]
             stat_nm = {"Delhi", "Mumbai", "Kolkata", "Gujrat", "Chennai"};
 
@@ -53,6 +54,15 @@ public class Activity2 extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 TextView tv = (TextView) view;
                 Toast.makeText(Activity2.this, tv.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        conflictMed = (Button) findViewById(R.id.btnConflictMed);
+
+        conflictMed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                func();
             }
         });
 
@@ -101,6 +111,11 @@ public class Activity2 extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+    }
+
+    private void func() {
+        Intent intent = new Intent(this, ConflictActivity.class);
+        startActivity(intent);
     }
 
 
