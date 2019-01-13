@@ -58,12 +58,11 @@ public class DB_connection extends AsyncTask<String,Void,Void> {
                 conflict_med = rs1.getString(1);Log.v("Stranger", "1");
             }
             String[] conflict_medicine_codes = conflict_med.split(",");Log.v("Stranger", "1");
-            PreparedStatement statement2 = Conn.prepareStatement("SELECT Common_Name FROM medicine WHERE Medicine_Code = '?'");Log.v("Stranger", "1");
+            PreparedStatement statement2 = Conn.prepareStatement("SELECT Common_Name FROM medicine WHERE Medicine_Code = ?");Log.v("Stranger", "1");
             conflict_med_name = "Conflicting Medicines: ";Log.v("Stranger", "1");
             for (int i = 0; i < conflict_medicine_codes.length; i++){
                 statement2.setString(1, conflict_medicine_codes[i]);Log.v("Stranger", "1");
                 ResultSet rs2 = statement2.executeQuery();Log.v("Stranger", "1");
-
                 while(rs2.next()){
                     String Medicine_name = rs2.getString(1);Log.v("Stranger", "1");
                     conflict_med_name += Medicine_name;Log.v("Stranger", "1");
@@ -157,6 +156,7 @@ public class DB_connection extends AsyncTask<String,Void,Void> {
         med_code = getMedCode(strings[0]);
         comp = getComposition(med_code);
         Salt = getSalt(comp);
+        conflict_med = getConflictMedNames(med_code);
         return null;
 
     }
